@@ -12,7 +12,7 @@ const Codes = () => {
 
   const fetchCoupons = async () => {
     try {
-      const response = await axios.get(`${import.meta.env.VITE_BACKEND_BASE_URL}/api/coupons`);
+      const response = await axios.get(`${window.location.origin}/api/coupons`);
       setCouponCodes(response.data);
     } catch (error) {
       console.error('Error fetching coupons:', error.message);

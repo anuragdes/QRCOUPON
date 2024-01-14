@@ -17,7 +17,7 @@ const CouponCodeGenerator = () => {
 
   const fetchCoupons = async () => {
     try {
-      const response = await axios.get(`${backendURL}/api/coupons`);
+      const response = await axios.get(`${window.location.origin}/api/coupons`);
       setCouponCodes(response.data);
     } catch (error) {
       console.error("Error fetching coupons:", error.message);
@@ -32,7 +32,7 @@ const CouponCodeGenerator = () => {
       const generatedCouponCodes = [];
       for (let i = 0; i < numCoupons; i++) {
         const { data } = await axios.post(
-          `${backendURL}/api/coupons`,
+          `${window.location.origin}/api/coupons`,
           generateCouponData()
         );
         generatedCouponCodes.push(data);
