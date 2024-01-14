@@ -6,7 +6,7 @@ import UseAnimations from "react-useanimations";
 import loading2 from "react-useanimations/lib/loading2";
 
 const CouponCodeGenerator = () => {
-  const backendURL = import.meta.env.VITE_BACKEND_BASE_URL;
+  // const backendURL = import.meta.env.VITE_BACKEND_BASE_URL;
 
   const [numCoupons, setNumCoupons] = useState(1);
   const [couponCodes, setCouponCodes] = useState([]);

@@ -6,7 +6,7 @@ const QRCode = require("qrcode");
 require("dotenv").config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = 8000 || 5000;
 
 app.use(cors());
 app.use(function (request, response, next) {
@@ -19,7 +19,7 @@ app.use(function (request, response, next) {
 });
 app.use(express.json());
 
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect('mongodb+srv://styx:styx@cluster0.en624ec.mongodb.net/', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
