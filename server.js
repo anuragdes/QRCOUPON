@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const { createCanvas } = require("canvas");
+// const { createCanvas } = require("canvas");
 const QRCode = require("qrcode");
 require("dotenv").config();
 
@@ -46,21 +46,22 @@ app.get("/api/coupons", async (req, res) => {
   }
 });
 
+const sharp = require('sharp');
+
 app.post("/api/coupons", async (req, res) => {
   try {
     const { couponCode, link } = req.body;
 
-    // Create a QR code as an image using qrcode
-    const canvas = createCanvas(100, 100);
-    const context = canvas.getContext("2d");
+    // Generate QR code with a higher error correction level
+    const qrCodeBuffer = await QRCode.toBuffer(link, { errorCorrectionLevel: "Q" });
 
-    await QRCode.toCanvas(canvas, link, { errorCorrectionLevel: "H" });
+    // Resize the QR code image using sharp
+    const resizedQrCodeBuffer = await sharp(qrCodeBuffer)
+      .resize(200, 200)
+      .toBuffer();
 
-    // Convert the canvas to a buffer
-    const qrCodeBuffer = canvas.toBuffer("image/png");
-
-    // Convert the buffer to a Base64-encoded string
-    const qrCodeBase64 = qrCodeBuffer.toString("base64");
+    // Convert the resized buffer to a Base64-encoded string
+    const qrCodeBase64 = resizedQrCodeBuffer.toString("base64");
 
     const newCoupon = new Coupon({
       couponCode,
