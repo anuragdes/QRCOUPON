@@ -74,7 +74,7 @@ const CouponCodeGenerator = () => {
       ) : (
         <>
           <h1 className="text-center mt-16">Sunchem Coupon Code Generator</h1>
-          <div className="w-full gap-8 h-auto py-16 my-16 flex flex-col justify-center items-center bg-white rounded-2xl p-4 text-black">
+          <div className="w-full gap-16 h-auto py-16 my-16 flex flex-col justify-center items-center bg-white rounded-2xl p-4 text-black">
             <div className="flex gap-4">
               <label className="block mb-2 text-2xl">
                 Number of coupons you want to generate:
@@ -118,12 +118,12 @@ const CouponCodeGenerator = () => {
           <h2 className="text-4xl">
             All Generated coupon codes and their status
           </h2>
-          <div className="justify-center mt-8 flex flex-wrap">
+          <div className="mt-8 flex flex-wrap">
             {couponCodes.map(
               ({ qrCode, link, couponCode, used, _id }, index) => (
                 <div
                   key={index}
-                  className="mr-4 mb-4 p-4 bg-[#f6f6f6] text-black rounded-2xl text-wrap"
+                  className="w-full sm:w-fit mr-4 mb-4 p-4 bg-[#f6f6f6] text-black rounded-2xl text-wrap"
                 >
                   <p className="text-center mt-2">
                     Coupon {index + 1} : {couponCode}
