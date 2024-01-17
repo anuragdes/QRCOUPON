@@ -19,7 +19,7 @@ app.use(function (request, response, next) {
 });
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://styx:styx@cluster0.en624ec.mongodb.net/', {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
