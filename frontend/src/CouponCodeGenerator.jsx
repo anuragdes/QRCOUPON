@@ -73,11 +73,11 @@ const CouponCodeGenerator = () => {
         </div>
       ) : (
         <>
-          <h1 className="text-center mt-16">Sunchem Coupon Code Generator</h1>
+          <h1 className="text-center mt-16">S</h1>
           <div className="w-full gap-16 h-auto py-16 my-16 flex flex-col justify-center items-center bg-white rounded-2xl p-4 text-black">
             <div className="flex gap-4">
               <label className="block mb-2 text-2xl">
-                Number of coupons you want to generate:
+                Number of coupons
               </label>
               <input
                 type="number"
