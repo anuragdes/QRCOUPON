@@ -33,8 +33,8 @@ const Coupon = mongoose.model("Coupon", {
 
 const path = require("path");
 app.get("/", (req, res) => {
-  app.use(express.static(path.resolve(__dirname, "frontend", "dist")));
-  res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+  app.use(express.static(path.resolve(__dirname, "frontend")));
+  res.sendFile(path.resolve(__dirname, "frontend", "index.html"));
 });
 
 app.get("/api/coupons", async (req, res) => {

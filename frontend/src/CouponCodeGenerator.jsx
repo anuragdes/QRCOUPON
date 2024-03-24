@@ -17,7 +17,7 @@ const CouponCodeGenerator = () => {
 
   const fetchCoupons = async () => {
     try {
-      const response = await axios.get(`${window.location.origin}/api/coupons`);
+      const response = await axios.get(`http://localhost:8000/api/coupons`);
       setCouponCodes(response.data);
     } catch (error) {
       console.error("Error fetching coupons:", error.message);
@@ -32,7 +32,7 @@ const CouponCodeGenerator = () => {
       const generatedCouponCodes = [];
       for (let i = 0; i < numCoupons; i++) {
         const { data } = await axios.post(
-          `${window.location.origin}/api/coupons`,
+          `http://localhost:8000/api/coupons`,
           generateCouponData()
         );
         generatedCouponCodes.push(data);
@@ -73,7 +73,7 @@ const CouponCodeGenerator = () => {
         </div>
       ) : (
         <>
-          <h1 className="text-center mt-16">S</h1>
+          <h1 className="text-center mt-16">Sunchem QR Generator</h1>
           <div className="w-full gap-16 h-auto py-16 my-16 flex flex-col justify-center items-center bg-white rounded-2xl p-4 text-black">
             <div className="flex gap-4">
               <label className="block mb-2 text-2xl">
