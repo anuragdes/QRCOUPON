@@ -1,4 +1,3 @@
-// CouponCodeGenerator.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -65,6 +64,23 @@ const CouponCodeGenerator = () => {
     return couponCode;
   };
 
+  	  
+  const deleteAllCoupons = () => {
+    const confirmDelete = window.confirm("Are you sure you want to delete all coupons?");
+    if (confirmDelete) {
+      setCouponCodes([]);
+    }
+  };
+
+  // const deleteElemets =() =>{
+  //   const removeElement =windows.confirm("all the elements will be deleted");
+  //   if(removeElement){
+  //     setCouponCodes([]);
+  //   }
+  // }
+  
+
+
   return (
     <div className="w-11/12 mx-auto">
       {loading ? (
@@ -113,6 +129,13 @@ const CouponCodeGenerator = () => {
               <b className="text-green-700">Not Used</b> coupon codes:{" "}
               {couponCodes.filter((coupon) => !coupon.used).length}
             </p>
+          </div>
+          <div className="flex mb-8">
+            <button 
+            className="bg-red-500 text-white py-2 px-4 rounded full"
+            onClick={deleteAllCoupons}>
+              delete all coupons 
+            </button>
           </div>
 
           <h2 className="text-4xl">

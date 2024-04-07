@@ -29,8 +29,8 @@ const Coupon = mongoose.model("Coupon", {
   link: String,
   used: Boolean,
   qrCodeImage: String,
+  expiryDate: Date // Adding the expiry date field
 });
-
 const path = require("path");
 app.get("/", (req, res) => {
   app.use(express.static(path.resolve(__dirname, "frontend")));
